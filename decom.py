@@ -2,11 +2,9 @@ import openpyxl
 from datetime import datetime
 import os
 
-folder_path = r'C:\Users\znzh\OneDrive - Chevron\PCN_IT\IP Compliance\Evidence\Commissioning & Decommissioning\Computer Decommissioning\Honeywell\2023-SGP GAS'
+folder_path = r'C:\Folder path'
 
-
-
-search_text = 'Update computer status record in PCMS database'
+search_text = 'Text for search'
 search_column = 'A'
 current_date = datetime.now().strftime('%m/%d/%Y')
 
@@ -22,8 +20,8 @@ for filename in os.listdir(folder_path):
             existing_data = sheet[f'D{row}'].value
             
             if cel_value == search_text and not existing_data:
-                sheet[f'D{row}'] = 'DONE'
-                sheet[f'E{row}'] = 'ZNZH'
+                sheet[f'D{row}'] = 'TEXT'
+                sheet[f'E{row}'] = 'TEXT'
                 sheet[f'F{row}'] = current_date
                 wb.save(file_path)
                 print(f"Updated file: {filename}")
